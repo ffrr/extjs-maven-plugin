@@ -45,6 +45,7 @@ public class BuilderMojo extends AbstractMojo
      */
     private String baseNamespace;
 
+    @Override
     public void execute() throws MojoExecutionException {   
         
     }
