@@ -1,0 +1,60 @@
+{
+    result: [{
+        id: 1,
+        type: 0,
+        direction: 0,
+        description: 'Store balance item.',
+        receivedOn: '2011-01-12',
+        sum: 25,
+        runningTotal: 280,
+        paymentStatus: 1,
+        confirmationStatus: 0,
+        confirmationReason: 0,
+        confirmationComment: 'Just like that.',
+        balance: 1,
+        budget: 1
+    },{
+        id: 2,
+        type: 1,
+        direction: 0,
+        description: 'Item 02.',
+        receivedOn: '2011-01-13',
+        sum: 150,
+        runningTotal: 190,
+        paymentStatus: 1,
+        confirmationStatus: 1,
+        confirmationReason: 0,
+        confirmationComment: 'Just like that.',
+        balance: 1,
+        budget: 1
+    },{
+        id: 3,
+        type: 2,
+        direction: 1,
+        description: 'Item 03.',
+        receivedOn: '2011-01-14',
+        sum: 280,
+        runningTotal: 140,
+        paymentStatus: 1,
+        confirmationStatus: 2,
+        confirmationReason: 0,
+        confirmationComment: 'Revoked, because ...',
+        balance: 3,
+        budget: 2
+    },{
+        id: 4,
+        type: 3,
+        direction: 1,
+        description: 'Store balance item.',
+        receivedOn: '2011-01-13',
+        sum: 250,
+        runningTotal: 120,
+        paymentStatus: 1,
+        confirmationStatus: 0,
+        confirmationReason: 0,
+        confirmationComment: 'Just like that.',
+        balance: 3,
+        budget: 2
+    }],
+    success: true
+}

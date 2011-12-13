@@ -1,0 +1,42 @@
+{
+    result: [{
+        id: 1,
+        referenceId: '2011/055',
+        summary: 'Some rather tedious and long description of the order=1',
+        acceptedDate: '2010-01-01',
+        customer: {
+            id: 98500,
+            name: 'František Karika'
+        },
+        deliveryStatus: {
+            id: 1,
+            name: 'In negotiation'
+        },
+        category: {
+            id: 1,
+            name: 'Category 1'
+        },
+        project_id: null,
+        total: 1120
+    },{
+        id: 2,
+        referenceId: '2011/065',
+        summary: 'Some other tedious and long description of the order=2',
+        acceptedDate: '2011-01-01',
+        customer: {
+            id: 98500,
+            name: 'František Karika'
+        },
+        deliveryStatus: {
+            id: 2,
+            name: 'Undelivered'
+        },
+        category: {
+            id: 2,
+            name: 'Category 2'
+        },
+        project_id: null,
+        total: 11430,
+    }],
+    success: true
+}
