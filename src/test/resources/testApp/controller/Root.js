@@ -8,9 +8,7 @@
  */
 
 //pre-init libs which are referenced as singleton classes in 
-Ext.require([
-    'DanteFrontend.view.Renderers',  'DanteFrontend.lib.Util'
-]);
+
 
 Ext.define('DanteFrontend.controller.Root', {
     extend: 'DanteFrontend.lib.Controller',

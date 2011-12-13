@@ -1,8 +1,7 @@
 package com.digmia.maven.plugin.extjsbuilder;
 
+import com.digmia.maven.plugin.extjsbuilder.extract.DefaultRegexBasedExtractor.ExtractionError;
 import java.io.File;
-import java.io.IOException;
-import org.apache.commons.io.FileUtils;
 
 /**
  *
@@ -15,24 +14,15 @@ public class DefaultJsClassParser {
     public DefaultJsClassParser(Global global) {
         this.global = global;
     }
-    
-    public JsClass parse(File file) {
-        return getJsClassFromFile(file);
-    }
-    
-    private JsClass getJsClassFromFile(File f) {
+       
+    public JsClass parse(File f, boolean parseDependencies) throws ExtractionError {
         JsClass klass = new JsClass(f);
-        try {
-            String contents = FileUtils.readFileToString(f);
-            global.getContextWrapper().getContext().evaluateString(global.getContextWrapper().getScope(), contents, "<" + f.getName() + ">", 1, null);
-            klass.setClassName(getClassNameFromFilePath(f));
-            klass.setDependencies(global.getExtractor().extractDependencies(klass, global));
-        } catch (IOException ex) {
-        }
+        klass.setClassName(getClassNameFromFilePath(f));
+        if(parseDependencies) klass.setDependencies(global.getExtractor().extractDependencies(klass));
         return klass;
     }   
     
-    private String getClassNameFromFilePath(File f) {
+    public String getClassNameFromFilePath(File f) {
         String path = f.getAbsolutePath()
             //remove extension
             .substring(0, f.getAbsolutePath().lastIndexOf(".")) 

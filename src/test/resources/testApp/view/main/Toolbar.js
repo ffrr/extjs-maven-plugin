@@ -6,6 +6,7 @@
  * @version 0.1
  * @date May 27, 2011
  */
+
 Ext.Img.override({
     initRenderTpl: Ext.emptyFn
 });

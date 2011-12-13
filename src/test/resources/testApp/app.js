@@ -21,7 +21,7 @@ DanteFrontend.appConf = {
         'DanteFrontend.lib.Command',
         'DanteFrontend.lib.CommandBus',
     ],
-
+    
     controllers: [
         'Root'
     ],

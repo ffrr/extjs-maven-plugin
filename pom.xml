@@ -4,7 +4,7 @@
   <groupId>com.digmia</groupId>
   <artifactId>extjs-maven-plugin</artifactId>
   <packaging>maven-plugin</packaging>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1</version>
   <name>Sencha ExtJS Maven builder plugin</name>
   <url>http://maven.apache.org</url>
   <build>
@@ -16,9 +16,21 @@
         <configuration>
           <source>1.6</source>
           <target>1.6</target>
+            <excludes>
+                <exclude>**/ContextWrapper.java</exclude>
+                <exclude>**/DefaultContextWrapper.java</exclude>
+                <exclude>**/LegacyConvertor.java</exclude>
+                <exclude>**/Node.java</exclude>
+            </excludes>    
+            <testExcludes>
+                <exclude>**/DependencyParserTest.java</exclude>
+                <exclude>**/GlobalTest.java</exclude>
+                <exclude>**/PatternTest.java</exclude>
+                <exclude>**/ParsingFacadeTest.java</exclude>
+            </testExcludes>
         </configuration>
       </plugin>
-    </plugins>
+    </plugins>  
   </build>
   <dependencies>
     <dependency>
@@ -33,11 +45,6 @@
             <artifactId>maven-project</artifactId>
             <version>2.0.9</version>
             <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.yahoo.platform.yui</groupId>
-      <artifactId>yuicompressor</artifactId>
-      <version>2.4.6</version>
     </dependency>
     <dependency>
       <groupId>org.testng</groupId>

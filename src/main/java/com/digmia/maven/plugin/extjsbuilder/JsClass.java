@@ -52,5 +52,12 @@ public class JsClass {
     public void setClassType(Type classType) {
         this.classType = classType;
     }
+
+    @Override
+    public String toString() {
+        return file.getPath();
+    }
+    
+    
     
 } 

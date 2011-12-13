@@ -5,25 +5,51 @@
  * @version 0.1
  * @date Jun 17, 2011
  */
-Ext.define('DanteFrontend.model.Customer', {
-    extend: 'Ext.data.Model',
+Ext.define('DanteFrontend.controller.Root', {
+    extend: 'Ext.app.Controller',
 
-    fields: [
-        'id', 'taxID', 'tradeID', 'web', 'email', 'emailFormat',
-        {
-            name: 'name',
-            convert: function(v) {
-                return v.replace("\n", " ");
-            } //ugly little workaround
-            //TODO: override the displayTpl of the cmbbox class -
-            //probably use an own class, since we will need it to support adding...
-        }
+    views: [
+        'Root',
+        'main.Panel',
+        'main.Footer',
+        'main.Toolbar'
+    ],
+    
+    controllers: [
+        'Root',
+        'main.Panel',
+        'main.Footer',
+        'main.Toolbar'
+    ],    
+    
+    models: [
+        'Root',
+        'main.Panel',
+        'main.Footer',
+        'main.Toolbar'
     ],
 
+    refs: [{
+        ref: 'content', selector: 'df-main-panel'
+    }],
 
-    statics: {
-        instanceDefaults: {
-            emailFormat: 1
+    init: function() {
+        //xpath-like comma-separation does not work with component queries (yet?)
+        this.control({
+            'df-main-toolbar button': {
+                click: this.clickHandler
+            },
+            'df-main-toolbar menuitem': { 
+                click: this.clickHandler
+            }
+        });
+
+    },
+
+    clickHandler: function(invoker) {
+        if(Ext.isDefined(invoker.action)) {
+            if(this.application.router)
+            this.application.router.route(invoker.action, invoker.text);
         }
     }
 });
